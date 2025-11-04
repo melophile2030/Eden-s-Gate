@@ -1,0 +1,169 @@
+
+main {
+  width: 95%;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+}
+.content h1 {
+  font-size: 2rem;
+}
+.createContent {
+  width: 450px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+.createContent h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.imageInputWrapper {
+  position: relative;
+  width: 100%;        
+  display: flex;      
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+.imageInputWrapper input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 55px; 
+}
+
+
+.uploadIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  cursor: pointer;
+}
+
+
+.preview {
+  margin-top: 10px;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.formGroup label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid #999;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #7d5fff;
+  box-shadow: 0 0 0 2px #7d5fff33;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.btn {
+  padding: 12px;
+  background: #7d5fff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #6a4fed;
+}
+
+.listContent {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 250px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.card p {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cardActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cardActions button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cardActions button:nth-child(1) {
+  background: #3b82f6; 
+  color: white;
+}
+
+.cardActions button:nth-child(2) {
+  background: #ef4444; 
+  color: white;
+}
