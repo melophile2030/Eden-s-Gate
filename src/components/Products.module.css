@@ -5,6 +5,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 5px;
+  color: rgb(94, 93, 93);
   margin-top: 100px;
 }
 .productsTitle {
@@ -44,6 +45,7 @@
 .productTitle {
   margin: 12px 0;
   font-size: 1.2rem;
+  height: 80px;
   color: #333;
 }
 .productPrice {
@@ -61,4 +63,37 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 30px;
+}
+
+.pagination button {
+  background-color: #e4e9ee;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #ccc;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.activePage {
+  background-color: #4caf50 !important;
+  color: white !important;
+  font-weight: bold;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

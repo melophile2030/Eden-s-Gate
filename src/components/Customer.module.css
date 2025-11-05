@@ -80,18 +80,13 @@ main {
 .formGroup textarea {
   padding: 10px 12px;
   border-radius: 8px;
-  background-color: transparent;
-  border: 2px solid #999;
+  background-color:rgba(255, 255, 255, 0.5);
+  border: 1px solid #999;
   outline: none;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
-.formGroup input:focus,
-.formGroup textarea:focus {
-  border-color: #7d5fff;
-  box-shadow: 0 0 0 2px #7d5fff33;
-}
 
 textarea {
   min-height: 90px;
@@ -100,7 +95,7 @@ textarea {
 
 .btn {
   padding: 12px;
-  background: #7d5fff;
+  background: #4CAF50;
   color: white;
   border: none;
   border-radius: 8px;
@@ -110,7 +105,7 @@ textarea {
 }
 
 .btn:hover {
-  background: #6a4fed;
+  background: #4CAF50d9;
 }
 
 .listContent {
