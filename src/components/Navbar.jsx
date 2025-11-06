@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useState, useRef, useEffect } from "react";
 export default function Navbar() {
-    const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   
   const dropdownRef = useRef(null);
-
-  
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -26,11 +24,11 @@ export default function Navbar() {
     setShowMenu((prev) => !prev);
   }
   return (
-    <>
+    <main>
       <header>
         <div className={styles.navbar}>
           <div className={styles.le}>
-            <Link to="#">Home</Link>
+            <Link to="/home">Home</Link>
           </div>
           <div className={styles.re}>
             <ul>
@@ -44,7 +42,6 @@ export default function Navbar() {
                 <button onClick={toggleMenu} className={styles.dropdownBtn}>
                   <img src="down.png" alt="Dropdown" />
                 </button>
-
                 {showMenu && (
                   <div className={styles.dropdownMenu}>
                     <Link to="/change-password">Change Password</Link>
@@ -56,6 +53,6 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-    </>
+    </main>
   );
 }

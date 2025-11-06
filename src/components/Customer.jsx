@@ -114,7 +114,7 @@ function Customer() {
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>{item.description}</p>
-
+              
               <div className={styles.cardActions}>
                 <button onClick={() => handleEdit(index)}>Edit</button>
                 <button onClick={() => handleDelete(index)}>Delete</button>

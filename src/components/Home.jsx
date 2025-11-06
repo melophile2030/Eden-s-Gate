@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 function Home() {
   return (
-      <main>
+      <>
         <div className={styles.mainContainer}>
           <img src="/eden's-gate-logo.png" alt="logo" className={styles.logo} />
 
@@ -14,11 +14,8 @@ function Home() {
             God will not let you take me."
           </p>
           <h3>-Joseph Seed</h3>
-          <Link to="#" className={styles.getStartedButton}>
-            Get Started
-          </Link>
         </div>
-      </main>
+      </>
   );
 }
 

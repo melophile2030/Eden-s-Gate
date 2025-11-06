@@ -29,31 +29,3 @@
   color: #555;
   max-width: 600px;
 }
-.getStartedButton {
-  margin-top: 30px;
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  border: 4px solid transparent;
-  border-radius: 25px;
-
-  background: 
-    linear-gradient(#4CAF50, #38803b) padding-box,
-    linear-gradient(to left, #bcdee8, #fddeb2) border-box;
-  color: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  transition: 0.2s ease-in-out;
-}
-
-.getStartedButton:hover {
-  transform: scale(1.05);
-}
-
-.getStartedButton:active {
-  transform: scale(0.98);
-  background-color: #45a049;
-}

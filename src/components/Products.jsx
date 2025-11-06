@@ -106,6 +106,7 @@ export default function Products() {
                 alt={product.title}
                 className={styles.productImage}
               />
+              <div className={styles.discountTag}><p>{product.discountPercentage}% off</p></div>
               <h3 className={styles.productTitle}>{product.title}</h3>
               <h3 className={styles.productPrice}>${product.price}</h3>
               <h5>{product.brand}</h5>

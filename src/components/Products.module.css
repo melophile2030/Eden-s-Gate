@@ -28,6 +28,7 @@
   background-color: rgba(255, 255, 255, 0.3);
   padding: 16px;
   transition: transform 0.2s ease-in-out;
+  position: relative;
 }
 
 .productCard:hover {
@@ -41,7 +42,18 @@
   object-fit: cover;
   border-radius: 4px;
 }
-
+.discountTag{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff5722;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
 .productTitle {
   margin: 12px 0;
   font-size: 1.2rem;
@@ -121,7 +133,7 @@ position: absolute;
 }
 .sortContainer select {
   padding: 7px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   font-size: 1rem;
   width: 100px;
@@ -129,6 +141,7 @@ position: absolute;
 .sortContainer select:focus {
   outline: none;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
