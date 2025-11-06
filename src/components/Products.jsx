@@ -109,7 +109,7 @@ export default function Products() {
               <div className={styles.discountTag}><p>{product.discountPercentage}% off</p></div>
               <h3 className={styles.productTitle}>{product.title}</h3>
               <h3 className={styles.productPrice}>${product.price}</h3>
-              <h5>{product.brand}</h5>
+              <h5 className={styles.brandName}>{product.brand}</h5>
               <p className={styles.productDescription}>{product.description}</p>
             </div>
           ))

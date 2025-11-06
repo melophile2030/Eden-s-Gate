@@ -41,7 +41,7 @@
 
 .inputField > button {
   position: absolute;
-  right: 40px;  
+  right: 40px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -54,7 +54,7 @@
 .inputBox {
   background: linear-gradient(to right, #bcdee8, #fddeb2);
   width: 100%;
-  padding: 13px 55px 13px 15px; 
+  padding: 13px 55px 13px 15px;
   border-radius: 5px;
   border: 2px solid #999;
   outline: none;
@@ -77,9 +77,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 40px auto 0 auto; 
+  margin: 40px auto 0 auto;
   width: 120px;
-  display: block; 
+  display: block;
   text-align: center;
   letter-spacing: 2px;
 }
@@ -87,4 +87,32 @@
 .submitButton:active {
   transform: scale(0.98);
   background-color: #e0b373;
+}
+
+@media (max-width: 768px) {
+  .login {
+    width: 90%;
+    height: auto;
+    padding: 18px;
+  }
+  .loginContainer {
+    height: auto;
+    padding: 40px 0;
+  }
+  .loginTitle {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login {
+    width: 95%;
+    padding: 14px;
+  }
+  .inputBox {
+    padding: 12px 40px 12px 12px;
+  }
+  .submitButton {
+    width: 100%;
+  }
 }

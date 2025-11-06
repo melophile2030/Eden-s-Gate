@@ -1,22 +1,13 @@
-
 main {
-  width: 95%;
-  padding: 20px;
   margin: 0 auto;
 }
 
-.content {
-  text-align: center;
-}
-.content h1 {
-  font-size: 2rem;
-}
 .createContent {
   width: 450px;
-  margin: 40px auto;
+  margin: 70px auto 0;
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 .createContent h2 {
   margin-bottom: 20px;
@@ -37,19 +28,17 @@ main {
 }
 .imageInputWrapper {
   position: relative;
-  width: 100%;        
-  display: flex;      
+  width: 100%;
+  display: flex;
   align-items: center;
   box-sizing: border-box;
 }
 
-
 .imageInputWrapper input[type="text"] {
   width: 100%;
   box-sizing: border-box;
-  padding-right: 55px; 
+  padding-right: 55px;
 }
-
 
 .uploadIcon {
   position: absolute;
@@ -59,7 +48,6 @@ main {
   width: 22px;
   cursor: pointer;
 }
-
 
 .preview {
   margin-top: 10px;
@@ -79,13 +67,12 @@ main {
 .formGroup textarea {
   padding: 10px 12px;
   border-radius: 8px;
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #999;
   outline: none;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-
 
 textarea {
   min-height: 90px;
@@ -94,7 +81,7 @@ textarea {
 
 .btn {
   padding: 12px;
-  background: #4CAF50;
+  background: #4caf50;
   color: white;
   border: none;
   border-radius: 8px;
@@ -104,7 +91,7 @@ textarea {
 }
 
 .btn:hover {
-  background: #4CAF50d9;
+  background: #4caf50d9;
 }
 
 .listContent {
@@ -119,13 +106,13 @@ textarea {
   width: 250px;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 .card p {
   display: -webkit-box;
   line-clamp: 3;
-  -webkit-line-clamp: 3; 
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -153,11 +140,40 @@ textarea {
 }
 
 .cardActions button:nth-child(1) {
-  background: #3b82f6; 
+  background: #3b82f6;
   color: white;
 }
 
 .cardActions button:nth-child(2) {
-  background: #ef4444; 
+  background: #ef4444;
   color: white;
+}
+
+/* Responsive tweaks for customer/create and list */
+@media (max-width: 768px) {
+  .createContent {
+    width: 92%;
+    margin-top: 40px;
+    padding: 18px;
+  }
+  .card {
+    width: calc(50% - 16px);
+  }
+  .card img {
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .createContent {
+    width: 95%;
+    padding: 12px;
+  }
+  .card {
+    width: 100%;
+  }
+  .preview {
+    width: 100px;
+    height: 100px;
+  }
 }

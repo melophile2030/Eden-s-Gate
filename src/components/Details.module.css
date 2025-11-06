@@ -55,3 +55,23 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 92%;
+    padding: 30px 12px;
+  }
+  .inputContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 18px 10px;
+  }
+  .detailsBox p {
+    font-size: 18px;
+  }
+}

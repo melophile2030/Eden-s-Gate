@@ -39,12 +39,8 @@ function Customer() {
 
   return (
       <main>
-        <div className={styles.content}>
-          <h1>Create your Profile</h1>
-        </div>
-
         <section className={styles.createContent}>
-          <h2>Create New Item</h2>
+          <h2>Create New Profile</h2>
           <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.formGroup}>
               <label>Name</label>

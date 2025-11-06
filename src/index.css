@@ -21,6 +21,31 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(250, 208, 148, 0.9);
   border-radius: 10px;
-  border: none; 
-  background-clip: content-box; 
+  border: none;
+  background-clip: content-box;
+}
+
+/* Responsive base: scale root font-size and provide breakpoint helpers */
+:root {
+  --max-width: 1200px;
+  --container-padding: 16px;
+}
+
+/* Slightly reduce base font on smaller screens for better fit */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }

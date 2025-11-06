@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 import { useState, useRef, useEffect } from "react";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -20,8 +20,13 @@ export default function Navbar() {
     localStorage.removeItem("authToken");
     window.location.href = "/login";
   }
+
   function toggleMenu() {
     setShowMenu((prev) => !prev);
+  }
+
+  function handleLinkClick() {
+    setShowMenu(false);
   }
   return (
     <main>
@@ -31,20 +36,45 @@ export default function Navbar() {
             <Link to="/home">Home</Link>
           </div>
           <div className={styles.re}>
-            <ul>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/customer">Customer</Link></li>
-              <li>
+            <ul className={styles.navLinks}>
+              <li className={styles.desktopOnly}>
+                <Link to="/products">Products</Link>
+              </li>
+              <li className={styles.desktopOnly}>
+                <Link to="/customer">Customer</Link>
+              </li>
+              <li className={styles.desktopOnly}>
                 <Link to="/details">Details</Link>
               </li>
-              <li><Link to="/pricing">Pricing</Link></li>
+              <li className={styles.desktopOnly}>
+                <Link to="/pricing">Pricing</Link>
+              </li>
               <li className={styles.dropdownBtnContainer} ref={dropdownRef}>
                 <button onClick={toggleMenu} className={styles.dropdownBtn}>
-                  <img src="down.png" alt="Dropdown" />
+                  <img src={showMenu ? "down.png" : "down.png"} alt="Menu" />
                 </button>
                 {showMenu && (
                   <div className={styles.dropdownMenu}>
-                    <Link to="/change-password">Change Password</Link>
+                    <div className={styles.mobileOnly}>
+                      <Link to="/products" onClick={handleLinkClick}>
+                        Products
+                      </Link>
+                      <Link to="/customer" onClick={handleLinkClick}>
+                        Customer
+                      </Link>
+                      <Link to="/details" onClick={handleLinkClick}>
+                        Details
+                      </Link>
+                      <Link to="/pricing" onClick={handleLinkClick}>
+                        Pricing
+                      </Link>
+                    </div>
+                    {window.innerWidth <= 900 && (
+                      <div className={styles.menuDivider}></div>
+                    )}
+                    <Link to="/change-password" onClick={handleLinkClick}>
+                      Change Password
+                    </Link>
                     <button onClick={handleLogout}>Logout</button>
                   </div>
                 )}
