@@ -10,7 +10,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  // ✅ If already logged in (and token still valid), skip login page
+  //  If already logged in (and token still valid), skip login page
   useEffect(() => {
     const token = sessionStorage.getItem("authToken");
     const expiry = sessionStorage.getItem("tokenExpiry");
@@ -23,7 +23,7 @@ function Login() {
     event.preventDefault();
     setError("");
 
-    // ✅ Clear old session before new login
+    //  Clear old session before new login
     sessionStorage.removeItem("authToken");
     sessionStorage.removeItem("tokenExpiry");
 
@@ -43,10 +43,10 @@ function Login() {
       }
 
       if (data?.data?.token) {
-        // ✅ Store token in sessionStorage
+        //  Store token in sessionStorage
         sessionStorage.setItem("authToken", data.data.token);
 
-        // ✅ Set token expiry 
+        //  Set token expiry 
         const expiresAt = Date.now() + 1 * 60 * 1000;
         sessionStorage.setItem("tokenExpiry", expiresAt.toString());
 

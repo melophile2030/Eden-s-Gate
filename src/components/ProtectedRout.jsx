@@ -5,7 +5,7 @@ function ProtectedRoute({ children }) {
   const token = sessionStorage.getItem("authToken");
   const tokenExpiry = sessionStorage.getItem("tokenExpiry");
 
-  // ✅ Check if token exists and is not expired
+  //  Check if token exists and is not expired
   const isTokenValid = () => {
     if (!token || !tokenExpiry) return false;
 
@@ -22,14 +22,14 @@ function ProtectedRoute({ children }) {
     return true;
   };
 
-  // ✅ Extend session while user is active
+  //  Extend session while user is active
   useEffect(() => {
     if (!token) return; // Run only for logged-in users
 
     const extendSession = () => {
       const newExpiry = Date.now() + 1 * 60 * 1000; 
       sessionStorage.setItem("tokenExpiry", newExpiry.toString());
-      console.log("🔄 Session extended:", new Date(newExpiry).toLocaleTimeString());
+      console.log("🔄 Session extended to : ", new Date(newExpiry).toLocaleTimeString());
     };
 
     // Listen for activity events
