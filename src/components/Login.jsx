@@ -1,18 +1,31 @@
 import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
-  const [error, setError] = useState("");
+  // ✅ If already logged in (and token still valid), skip login page
+  useEffect(() => {
+    const token = sessionStorage.getItem("authToken");
+    const expiry = sessionStorage.getItem("tokenExpiry");
+    if (token && expiry && Date.now() < parseInt(expiry, 10)) {
+      navigate("/home");
+    }
+  }, [navigate]);
 
   async function postData(event) {
     event.preventDefault();
     setError("");
+
+    // ✅ Clear old session before new login
+    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("tokenExpiry");
 
     try {
       const response = await fetch("https://temple.hexalinks.in/api/login", {
@@ -20,39 +33,41 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Authentication failed");
+        throw new Error(data.message || "Authentication failed ");
       }
 
       if (data?.data?.token) {
-        // Store token in sessionStorage instead of localStorage
+        // ✅ Store token in sessionStorage
         sessionStorage.setItem("authToken", data.data.token);
 
-        // Store token expiry (e.g., 24 hours from now)
-        const expiresAt = new Date().getTime() + 24 * 60 * 60 * 1000;
+        // ✅ Set token expiry 
+        const expiresAt = Date.now() + 1 * 60 * 1000;
         sessionStorage.setItem("tokenExpiry", expiresAt.toString());
 
         navigate("/home");
       } else {
-        setError("Invalid response from server");
+        setError("Invalid email or password");
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
       console.error("Error:", error);
       setError(error.message || "Failed to login. Please try again.");
+      setPassword("");
     }
   }
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.login}>
         <h2 className={styles.loginTitle}>LOGIN</h2>
+
         <form onSubmit={postData} className={styles.loginForm}>
           <div className={styles.inputField}>
             <input
@@ -61,7 +76,6 @@ function Login() {
               className={styles.inputBox}
               required
               autoComplete="off"
-              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -70,7 +84,6 @@ function Login() {
           <div className={styles.inputField}>
             <input
               type={showPassword ? "text" : "password"}
-              name="password"
               placeholder="Enter your Password"
               className={styles.inputBox}
               required
@@ -81,11 +94,12 @@ function Login() {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "🐵" : "🙈"}{" "}
+              {showPassword ? "🐵" : "🙈"}
             </button>
           </div>
 
           {error && <div className={styles.errorMessage}>{error}</div>}
+
           <button type="submit" className={styles.submitButton}>
             Login
           </button>
