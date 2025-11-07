@@ -12,7 +12,7 @@ function Details() {
       return;
     }
 
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     try {
       const response = await fetch(
@@ -32,16 +32,16 @@ function Details() {
       if (data?.success) {
         setDetails(data.data);
       } else {
-        alert(data?.message || "No details found ❌");
+        alert(data?.message || "No details found ");
       }
     } catch (error) {
       console.error(error);
-      alert("Server error ❌");
+      alert("Server error ");
     }
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onSubmit={handleFetch}>
       <h2>Fetch Receipt Details</h2>
 
       <form className={styles.inputContainer}>
@@ -52,7 +52,7 @@ function Details() {
           value={receiptId}
           onChange={(e) => setReceiptId(e.target.value)}
         />
-        <button type="submit" onClick={handleFetch}>
+        <button type="submit" >
           Fetch
         </button>
       </form>

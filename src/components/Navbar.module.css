@@ -103,13 +103,15 @@
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
+  border-radius: 25px;
   transition: background-color 0.2s;
   display: block;
 }
 
 .dropdownMenu a:hover,
 .dropdownMenu button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #f8d4a2;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .menuDivider {
@@ -141,6 +143,7 @@
     right: -16px;
     width: 280px;
   }
+
 
   .dropdownMenu a,
   .dropdownMenu button {

@@ -75,6 +75,7 @@ function Login() {
               placeholder="Enter your Email"
               className={styles.inputBox}
               required
+              name="email"
               autoComplete="off"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -87,6 +88,7 @@ function Login() {
               placeholder="Enter your Password"
               className={styles.inputBox}
               required
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
