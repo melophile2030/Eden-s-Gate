@@ -1,13 +1,26 @@
 .loading {
   display: flex;
-  justify-content: center;
-  height: 100vh;
-  font-weight: bold;
-  font-size: 1.5rem;
-  letter-spacing: 5px;
-  color: rgb(94, 93, 93);
-  margin-top: 100px;
+  justify-content:center;
+  align-items:center;
+  height: 100vh; /* Centers vertically */
 }
+
+.loading img {
+  width: 60px;
+  animation: spin 1.5s linear infinite;
+}
+
+/* Animation definition */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .productsTitle {
   text-align: center;
   font-size: 2rem;
@@ -139,8 +152,11 @@
   padding: 7px;
   border-radius: 8px;
   border: none;
-  font-size: 1rem;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
   width: 100px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .sortContainer select:focus {
   outline: none;

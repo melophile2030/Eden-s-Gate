@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useState, useRef, useEffect } from "react";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
 
   const dropdownRef = useRef(null);
 
@@ -17,8 +18,15 @@ export default function Navbar() {
   }, []);
 
   function handleLogout() {
-    localStorage.removeItem("authToken");
-    window.location.href = "/login";
+    // Clear all auth-related data
+    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("tokenExpiry");
+
+    // Close the dropdown menu
+    setShowMenu(false);
+
+    // Navigate to login page
+    navigate("/login", { replace: true });
   }
 
   function toggleMenu() {

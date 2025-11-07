@@ -21,7 +21,7 @@ export default function Products() {
   }, []);
 
   if (loading) {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}><img src="loading.png" alt="loading" /></div>;
   }
 
   // Filter by search
@@ -89,8 +89,8 @@ export default function Products() {
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
         >
-          <option value="title-asc">A–Z</option>
-          <option value="title-desc">Z–A</option>
+          <option value="title-asc">Name: Ascending</option>
+          <option value="title-desc">Name: Descending</option>
           <option value="price-low-high">Price: Low to High</option>
           <option value="price-high-low">Price: High to Low</option>
         </select>

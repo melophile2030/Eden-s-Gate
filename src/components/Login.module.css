@@ -89,6 +89,14 @@
   background-color: #e0b373;
 }
 
+.errorMessage {
+  color: #e74c3c;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .login {
     width: 90%;

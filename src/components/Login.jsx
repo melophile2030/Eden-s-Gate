@@ -8,8 +8,12 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const [error, setError] = useState("");
+
   async function postData(event) {
     event.preventDefault();
+    setError("");
+
     try {
       const response = await fetch("https://temple.hexalinks.in/api/login", {
         method: "POST",
@@ -23,18 +27,26 @@ function Login() {
       });
 
       const data = await response.json();
-      console.log("Response:", data);
+
+      if (!response.ok) {
+        throw new Error(data.message || "Authentication failed");
+      }
 
       if (data?.data?.token) {
-        localStorage.setItem("authToken", data.data.token);
-        console.log("AuthToken : ", data.data.token);
+        // Store token in sessionStorage instead of localStorage
+        sessionStorage.setItem("authToken", data.data.token);
+
+        // Store token expiry (e.g., 24 hours from now)
+        const expiresAt = new Date().getTime() + 24 * 60 * 60 * 1000;
+        sessionStorage.setItem("tokenExpiry", expiresAt.toString());
+
         navigate("/home");
       } else {
-        alert("Invalid Credentials ❌");
+        setError("Invalid response from server");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Server Error. Try again later ❌");
+      setError(error.message || "Failed to login. Please try again.");
     }
   }
   return (
@@ -57,7 +69,7 @@ function Login() {
 
           <div className={styles.inputField}>
             <input
-              type={showPassword ? "text" : "password"} 
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your Password"
               className={styles.inputBox}
@@ -73,6 +85,7 @@ function Login() {
             </button>
           </div>
 
+          {error && <div className={styles.errorMessage}>{error}</div>}
           <button type="submit" className={styles.submitButton}>
             Login
           </button>
