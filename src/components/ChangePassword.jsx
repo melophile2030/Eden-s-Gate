@@ -1,7 +1,9 @@
 import styles from "./ChangePassword.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ChangePassword() {
+  const navigate = useNavigate();
   const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -9,7 +11,6 @@ function ChangePassword() {
   const [showCurrentPass, setShowCurrentPass] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
-
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,7 +21,7 @@ function ChangePassword() {
     }
 
     try {
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
 
       const response = await fetch(
         "https://temple.hexalinks.in/api/change_password",
@@ -37,15 +38,15 @@ function ChangePassword() {
           }),
         }
       );
-      
 
       const data = await response.json();
       console.log(data);
 
       if (data?.success) {
-        localStorage.removeItem("authToken");
-        window.location.href = "/login";
+        sessionStorage.removeItem("authToken");
+        sessionStorage.removeItem("tokenExpiry");
         alert("Password changed successfully ✅");
+        navigate("/login", { replace: true });
       } else {
         alert(data?.message || "Something went wrong ❌");
       }
