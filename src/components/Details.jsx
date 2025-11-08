@@ -31,8 +31,10 @@ function Details() {
 
       if (data?.success) {
         setDetails(data.data);
+        setReceiptId("");
       } else {
         alert(data?.message || "No details found ");
+        setReceiptId("");
       }
     } catch (error) {
       console.error(error);
