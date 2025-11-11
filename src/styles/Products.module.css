@@ -7,9 +7,18 @@
 
 .loading img {
   width: 60px;
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
 }
-
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff5722;
+  margin-top: 20px;
+}
+.error img {
+  width: 200px;
+  margin-bottom: 20px;
+}
 /* Animation definition */
 @keyframes spin {
   from {

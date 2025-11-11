@@ -43,10 +43,10 @@ function Details() {
   }
 
   return (
-    <div className={styles.container} onSubmit={handleFetch}>
+    <div className={styles.container}>
       <h2>Fetch Receipt Details</h2>
 
-      <form className={styles.inputContainer}>
+      <form className={styles.inputContainer} onSubmit={handleFetch}>
         <input
           className={styles.noArrows}
           type="number"
@@ -54,9 +54,7 @@ function Details() {
           value={receiptId}
           onChange={(e) => setReceiptId(e.target.value)}
         />
-        <button type="submit" >
-          Fetch
-        </button>
+        <button type="submit">Fetch</button>
       </form>
 
       {details && (
@@ -64,13 +62,13 @@ function Details() {
           <h3>Details Found</h3>
 
           <p>
-            <strong>പേര്  :     </strong> {details.name}
+            <strong>പേര് : </strong> {details.name}
           </p>
           <p>
-            <strong>നാൾ  :    </strong> {details.naalu}
+            <strong>നാൾ : </strong> {details.naalu}
           </p>
           <p>
-            <strong>നമ്പർ :    </strong> {details.contact_no}
+            <strong>നമ്പർ : </strong> {details.contact_no}
           </p>
         </div>
       )}
