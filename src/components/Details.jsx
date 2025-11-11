@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Details.module.css";
+import styles from "../styles/Details.module.css";
 
 function Details() {
   const [receiptId, setReceiptId] = useState("");

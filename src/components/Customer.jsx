@@ -1,4 +1,4 @@
-import styles from "./Customer.module.css";
+import styles from "../styles/Customer.module.css";
 import { useState } from "react";
 
 function Customer() {

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Navbar.module.css";
+import styles from "../styles/Navbar.module.css";
 import { useState, useRef, useEffect } from "react";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);

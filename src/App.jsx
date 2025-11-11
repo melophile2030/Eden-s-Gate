@@ -3,7 +3,6 @@ import Home from "./components/Home.jsx";
 import Login from "./components/Login.jsx";
 import Details from "./components/Details.jsx";
 import Products from "./components/Products.jsx";
-import Navbar from "./components/Navbar.jsx";
 import Customer from "./components/Customer.jsx";
 import ChangePassword from "./components/ChangePassword.jsx";
 import ProtectedRoute from "./components/ProtectedRout.jsx";
