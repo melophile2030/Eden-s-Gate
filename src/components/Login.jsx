@@ -53,7 +53,6 @@ function Login() {
         navigate("/home");
       } else {
         setError("Invalid email or password");
-        setEmail("");
         setPassword("");
       }
     } catch (error) {

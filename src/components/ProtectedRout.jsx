@@ -33,13 +33,11 @@ function ProtectedRoute({ children }) {
     };
 
     // Listen for activity events
-    window.addEventListener("mousemove", extendSession);
     window.addEventListener("keydown", extendSession);
     window.addEventListener("click", extendSession);
 
     // Cleanup when unmounted (logout or page change)
     return () => {
-      window.removeEventListener("mousemove", extendSession);
       window.removeEventListener("keydown", extendSession);
       window.removeEventListener("click", extendSession);
     };
